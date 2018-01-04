@@ -1,24 +1,47 @@
 {
   "name": "catch-of-the-day",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Catch of the Day service",
+  "main": "index.js",
+  "author": "Dmytro Nasyrov @ Pharos Production Inc.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com"
+  },
+  "bugs": {
+    "url": "https://github.com"
+  },
+  "homepage": "https://abcd.heroku.com",
+  "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "react-scripts": "^1.0.17",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
+    "file-loader": "^1.1.6",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "re-base": "^3.2.1",
     "concurrently": "^3.5.1",
     "stylus": "^0.54.5",
     "autoprefixer-stylus": "^0.14.0"
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "^react-transition-group": "2.2.1",
-    "re-base": "^3.2.1"
+    "react-dom": "^16.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-webpack": "webpack-dev-server --hot --inline",
     "watch": "concurrently --names 'webpack, stylus' --prefix name 'npm run start' 'npm run styles:watch'",
     "build": "react-scripts build",
+    "build-webpack": "webpack",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o .src/css/style.css",
