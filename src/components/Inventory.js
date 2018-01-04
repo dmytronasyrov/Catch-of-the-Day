@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import base from '../base';
-import Firebase from 'firebase';
+import firebase from 'firebase';
 
 import AddFishForm from './AddFishForm';
 
 class Inventory extends React.Component {
 
   constructor () {
-    super();
+    super(...arguments);
 
     this.renderInventory = this.renderInventory.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -25,10 +25,9 @@ class Inventory extends React.Component {
   }
 
   componentDidMount () {
-    Firebase.auth().onAuthStateChanged(user => {
-      if (user) {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user)
         this.authHandler(null, { user });
-      }
     });
   }
 
@@ -39,9 +38,9 @@ class Inventory extends React.Component {
     this.props.updateFish(key, updatedFish);
   }
 
-  authenticate (provider) {
-    var provider = new Firebase.auth.FacebookAuthProvider();
-    Firebase.auth().signInWithPopup(provider).then(this.authHandler).catch(error => {
+  authenticate () {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(this.authHandler).catch(error => {
     	console.log(error);
     });
   }
@@ -50,7 +49,7 @@ class Inventory extends React.Component {
     if (err)
       return;
 
-    const storeRef = Firebase.database().ref(this.props.storeId);
+    const storeRef = firebase.database().ref(this.props.storeId);
     storeRef.once('value', (snapshot) => {
       const data = snapshot.val() || {};
 
@@ -65,7 +64,7 @@ class Inventory extends React.Component {
   }
 
   logout () {
-    Firebase.auth().signOut();
+    firebase.auth().signOut();
     this.setState({ uid: null });
   }
 
@@ -73,7 +72,7 @@ class Inventory extends React.Component {
     return (
       <nav className="login">
         <h2>Inventory</h2>
-        <button className="facebook" onClick={ () => this.authenticate('facebook') }>Log In with Facebook</button>
+        <button className="facebook" onClick={ () => this.authenticate() }>Log In with Facebook</button>
       </nav>
     );
   }
