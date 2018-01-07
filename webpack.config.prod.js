@@ -27,6 +27,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
+        include: path.join(__dirname, 'src'),
         exclude: /(node_modules|bower_components)/,
         loader: 'file-loader',
         options: {
@@ -35,26 +36,22 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
+        include: path.join(__dirname, 'src'),
         exclude: /(node_modules|bower_components)/,
         use: ['file-loader']
       },
-      // js
       {
-        test: /\.js$/,
-        loaders: ['babel-loader'],
-        include: path.join(__dirname, 'src')
+        test: /\.(js|jsx)$/,
+        include: path.join(__dirname, 'src'),
+        exclude: /(node_modules|bower_components)/,
+        use: ['babel-loader'],
       },
-      // CSS
       {
         test: /\.styl$/,
+        exclude: /(node_modules|bower_components)/,
         include: path.join(__dirname, 'src'),
         loader: 'style-loader!css-loader!stylus-loader'
-      },
-      {
-        test: /\.css$/,
-        exclude: /(node_modules|bower_components)/,
-        use: ['style-loader', 'css-loader']
-      },
+      }
     ]
   }
 };
