@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { getFunName } from '../helpers';
+import { getFunName } from '../utils/helpers';
 
 class StorePicker extends React.Component {
 

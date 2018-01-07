@@ -23,6 +23,9 @@ module.exports = {
       warningsFilter: (src) => true
     })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     loaders: [
       {

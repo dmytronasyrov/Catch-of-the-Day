@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import base from '../setup/base';
+
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 
-import base from '../base';
-import sampleFishes from '../sample-fishes.js'
-
-class App extends React.Component {
+class Store extends React.Component {
 
   constructor () {
-    super();
+    super(...arguments)
 
     this.addFish = this.addFish.bind(this);
     this.updateFish = this.updateFish.bind(this);
@@ -67,7 +66,7 @@ class App extends React.Component {
   }
 
   loadSamples () {
-    this.setState({ fishes: sampleFishes });
+    // this.setState({ fishes: sampleFishes });
   }
 
   addToOrder (key) {
@@ -111,8 +110,8 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Store.propTypes = {
   match: PropTypes.object.isRequired
 }
 
-export default App;
+export default Store;
