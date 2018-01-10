@@ -1,4 +1,4 @@
-function order(state = {}, action) {
+function order (state = {}, action) {
   return state;
 }
 

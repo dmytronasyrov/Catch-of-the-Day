@@ -1,33 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { IndexRoute, Router, Route, Switch } from 'react-router';
+import { Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
 import store, { history } from './store';
-import * as actions from './actions/actions';
 import css from './styles/style.styl';
 import registerServiceWorker from './utils/registerServiceWorker';
 
-// import App from './components/App';
+import App from './components/App';
 import StorePicker from './components/StorePicker';
-import Store from './components/Store';
+import Shop from './components/Shop';
 import NotFound from './components/NotFound';
-import Main from './components/Main';
-
-function mapStateToProps (state) {
-  return {
-    fishes: state.fishes,
-    order: state.order
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
-
-const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 const router = (
   <Provider store={ store }>
@@ -35,7 +19,7 @@ const router = (
       <App>
         <Switch>
           <Route exact path = "/" component ={ StorePicker }/>
-          <Route path="/store/:storeId" component={ Store }/>
+          <Route path="/store/:storeId" component={ Shop }/>
           <Route component={ NotFound }/>
         </Switch>
       </App>

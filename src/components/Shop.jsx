@@ -8,7 +8,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 
-class Store extends React.Component {
+class Shop extends React.Component {
 
   constructor () {
     super(...arguments)
@@ -110,8 +110,8 @@ class Store extends React.Component {
   }
 }
 
-Store.propTypes = {
+Shop.propTypes = {
   match: PropTypes.object.isRequired
 }
 
-export default Store;
+export default Shop;

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import store from '../store';
+import { push } from 'react-router-redux'
 
 import { getFunName } from '../utils/helpers';
 

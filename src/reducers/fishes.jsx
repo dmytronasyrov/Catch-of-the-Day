@@ -1,4 +1,4 @@
-function fishes(state = {}, action) {
+function fishes (state = {}, action) {
   return state;
 }
 

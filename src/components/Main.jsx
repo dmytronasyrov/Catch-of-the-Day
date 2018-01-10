@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class Main extends React.Component {
 
@@ -11,8 +12,7 @@ class Main extends React.Component {
     return (
       <div>
         <h1>
-          Catch of the Day
-          {/* <Link to="/">Catch of the Day</Link> */}
+          <Link to="/">Catch of the Day</Link>
         </h1>
         { childrenWithProps }
       </div>
