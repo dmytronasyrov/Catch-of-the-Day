@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import { formatPrice } from '../utils/helpers';
 
+// ###########################################################################################
+
 class Fish extends React.Component {
+
   render () {
     const { details, index } = this.props;
     const isAvailable = (details.status === 'available');

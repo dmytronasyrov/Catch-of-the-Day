@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import { formatPrice } from '../utils/helpers';
 
+// ###########################################################################################
+
 class Order extends React.Component {
 
   constructor () {
-    super();
+    super(...arguments);
 
     this.renderOrder = this.renderOrder.bind(this);
   }

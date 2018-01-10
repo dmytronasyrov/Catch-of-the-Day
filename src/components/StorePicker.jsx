@@ -6,6 +6,8 @@ import { push } from 'react-router-redux'
 
 import { getFunName } from '../utils/helpers';
 
+// ###########################################################################################
+
 class StorePicker extends React.Component {
 
   goToStore (e) {
