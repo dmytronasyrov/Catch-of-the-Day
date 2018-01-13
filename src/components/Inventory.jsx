@@ -132,7 +132,6 @@ Inventory.propTypes = {
   updateFish: PropTypes.func.isRequired,
   removeFish: PropTypes.func.isRequired,
   addFish: PropTypes.func.isRequired,
-  loadSamples: PropTypes.func.isRequired,
   storeId: PropTypes.string.isRequired
 };
 

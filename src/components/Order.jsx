@@ -5,10 +5,10 @@ import { formatPrice } from '../utils/helpers';
 
 // ###########################################################################################
 
-class Order extends React.Component {
+export class Order extends React.Component {
 
-  constructor () {
-    super(...arguments);
+  constructor (props) {
+    super(props);
 
     this.renderOrder = this.renderOrder.bind(this);
   }
