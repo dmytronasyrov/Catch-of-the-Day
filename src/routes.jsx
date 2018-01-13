@@ -10,7 +10,7 @@ import StorePicker from './components/StorePicker';
 import Shop from './components/Shop';
 import NotFound from './components/NotFound';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 const routes = (
   <Provider store={ store }>

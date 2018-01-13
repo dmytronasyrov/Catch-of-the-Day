@@ -5,7 +5,7 @@ import css from './styles/style.styl';
 import routes from './routes';
 import registerServiceWorker from './utils/registerServiceWorker';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 render (routes, document.querySelector('#root'))
 registerServiceWorker();

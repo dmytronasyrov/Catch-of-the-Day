@@ -7,7 +7,7 @@ import order from './data/order';
 
 import rootReducer from './reducers/index';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 const defaultState = { fishes, order };
 const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() : f => f);

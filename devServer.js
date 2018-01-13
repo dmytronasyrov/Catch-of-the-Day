@@ -1,10 +1,12 @@
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config.dev');
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const app = express();
 
-var app = express();
-var compiler = webpack(config);
+const config = require('./webpack/webpack.config.dev');
+const compiler = webpack(config);
+
+const PORT = process.env.PORT || 7770;
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -17,11 +19,6 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(7770, 'localhost', function(err) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  console.log('Listening at http://localhost:7770');
+app.listen(PORT, 'localhost', function(err) {
+  console.log(err ? err : 'Listening at http://localhost:' + PORT);
 });
