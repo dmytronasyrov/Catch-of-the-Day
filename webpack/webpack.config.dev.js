@@ -15,6 +15,11 @@ try {
 
 module.exports = merge.smart(config, {
   devtool: 'source-map',
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
+  },
   entry: [
     'webpack-hot-middleware/client'
   ],
