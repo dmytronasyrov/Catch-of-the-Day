@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import base from '../setup/base';
-import * as actions from '../reducers/order_actions';
+import * as orderActions from '../reducers/order_actions';
+import * as fishesActions from '../reducers/fishes_actions';
 import store from '../store';
 
 import Header from './Header';
@@ -48,33 +49,23 @@ class Shop extends React.Component {
   }
 
   addFish (fish) {
-    // const fishes = { ...this.state.fishes };
-    // const timestamp = Date.now();
-    // fishes[`fish-${timestamp}`] = fish;
-
-    // this.setState({ fishes });
+    this.props.dispatch(fishesActions.addFish(fish));
   }
 
-  updateFish (key, updatedFish) {
-    // const fishes = { ...this.state.fishes };
-    // fishes[key] = updatedFish;
-
-    // this.setState({ fishes });
+  updateFish (key, fish) {
+    this.props.dispatch(fishesActions.updateFish(key, fish));
   }
 
   removeFish (key) {
-    // const fishes = { ...this.state.fishes };
-    // fishes[key] = null;
-
-    // this.setState({ fishes });
+    this.props.dispatch(fishesActions.removeFish(key));
   }
 
   addToOrder (key) {
-    this.props.dispatch(actions.addToOrder(key));
+    this.props.dispatch(orderActions.addToOrder(key));
   }
 
   removeFromOrder (key) {
-    this.props.dispatch(actions.removeFromOrder(key));
+    this.props.dispatch(orderActions.removeFromOrder(key));
   }
 
   render () {

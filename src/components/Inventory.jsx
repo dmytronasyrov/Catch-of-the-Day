@@ -10,8 +10,8 @@ import AddFishForm from './AddFishForm';
 
 class Inventory extends React.Component {
 
-  constructor () {
-    super(...arguments);
+  constructor (props) {
+    super(props);
 
     this.renderInventory = this.renderInventory.bind(this);
     this.handleChange = this.handleChange.bind(this);
