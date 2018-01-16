@@ -1,4 +1,4 @@
-function order (state = {}, action) {
+function orderReducer (state = {}, action) {
   switch (action.type) {
     case 'ORDER_ADD':
       const newAddState = Object.assign({}, state)
@@ -16,4 +16,5 @@ function order (state = {}, action) {
   }
 }
 
-export default order;
+export const defaultOrder = {};
+export default orderReducer;

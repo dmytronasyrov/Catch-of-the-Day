@@ -2,11 +2,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
-import * as order_actions from '../reducers/order_actions';
+import * as orderActions from '../reducers/orderActions';
 
 import Main from './Main';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 function mapStateToProps (state) {
   return {
@@ -16,7 +16,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(order_actions, dispatch);
+  return bindActionCreators(orderActions, dispatch);
 }
 
 const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

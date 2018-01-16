@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { formatPrice } from '../utils/helpers';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 export class Order extends React.Component {
 

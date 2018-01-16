@@ -1,8 +1,8 @@
 import fishesSamples from '../data/fishes';
 
-//----------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
-function fishes (state = {}, action) {
+function fishesReducer (state = {}, action) {
   switch (action.type) {
     case 'FISH_SAMPLES':
       const stateSamples = { ...state, ...fishesSamples };
@@ -32,4 +32,5 @@ function fishes (state = {}, action) {
   }
 }
 
-export default fishes;
+export const defaultFishes = {};
+export default fishesReducer;

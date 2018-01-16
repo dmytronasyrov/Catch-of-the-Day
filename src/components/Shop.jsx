@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import base from '../setup/base';
-import * as orderActions from '../reducers/order_actions';
-import * as fishesActions from '../reducers/fishes_actions';
+import * as orderActions from '../reducers/orderActions';
+import * as fishesActions from '../reducers/fishesActions';
 import store from '../store';
 
 import Header from './Header';
@@ -12,7 +12,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 class Shop extends React.Component {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// ###########################################################################################
+//--------------------------------------------------------------------------------------------------
 
 class AddFishForm extends React.Component {
 
@@ -16,6 +16,7 @@ class AddFishForm extends React.Component {
       image: this.image.value
     }
     this.props.addFish(fish);
+
     this.fishForm.reset();
   }
 
