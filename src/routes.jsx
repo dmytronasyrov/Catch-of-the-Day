@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './store';
 
 import App from './components/App';
-import StorePicker from './components/StorePicker';
+import ShopPicker from './components/ShopPicker';
 import Shop from './components/Shop';
 import NotFound from './components/NotFound';
 
@@ -17,8 +17,8 @@ const routes = (
     <ConnectedRouter history={ history }>
       <App>
         <Switch>
-          <Route exact path = "/" component ={ StorePicker }/>
-          <Route path="/store/:storeId" component={ Shop }/>
+          <Route exact path = "/" component ={ ShopPicker }/>
+          <Route path="/shop/:shopId" component={ Shop }/>
           <Route component={ NotFound }/>
         </Switch>
       </App>

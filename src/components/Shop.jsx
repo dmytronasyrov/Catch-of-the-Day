@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import base from '../setup/base';
+import * as shopActions from '../reducers/shopActions';
 import * as orderActions from '../reducers/orderActions';
 import * as fishesActions from '../reducers/fishesActions';
 import store from '../store';
@@ -26,28 +27,36 @@ class Shop extends React.Component {
     this.removeFromOrder = this.removeFromOrder.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
 
-    this.props = {
-      fishes: {},
-      order: {}
-    }
+    // this.props = {
+    //   fishes: {},
+    //   order: {},
+    //   shop: ""
+    // }
   }
 
   componentWillMount () {
-    this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`, {context: this, state: 'fishes'});
-  //
-  //   const localStorageRef = localStorage.getItem(`order-${this.props.match.params.storeId}`);
-  //
-  //   if (localStorageRef)
-  //     this.setState({ order: JSON.parse(localStorageRef) })
+    this.props.dispatch(shopActions.openShop(this.props.match.params.shopId));
+    // this.ref = base.syncState(`${this.props.shopId}/fishes`, {context: this, state: 'fishes'});
+    //
+    // const localStorageRef = localStorage.getItem(`order-${this.props.match.params.shopId}`);
+    //
+    // if (localStorageRef)
+    //   this.setState({ order: JSON.parse(localStorageRef) })
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    // localStorage.setItem(`order-${this.props.match.params.storeId}`, JSON.stringify(nextState.order));
-  }
+  // componentWillUpdate(nextProps, nextState) {
+    // console.log("PROPS: " + JSON.stringify(nextProps));
+    // console.log("STATE: " + JSON.stringify(nextState));
+    //
+    // this.setState({ fishes: nextProps.fishes })
+    // this.state = nextState;
+    // this.props = nextProps;
+    // localStorage.setItem(`order-${this.props.match.params.shopId}`, JSON.stringify(nextState.order));
+  // }
 
-  componentWillUnmount () {
-    base.removeBinding(this.ref);
-  }
+  // componentWillUnmount () {
+  //   base.removeBinding(this.ref);
+  // }
 
   addFish (fish) {
     this.props.dispatch(fishesActions.addFish(fish));
@@ -97,7 +106,7 @@ class Shop extends React.Component {
           removeFish={ this.removeFish }
           fishes={ this.props.fishes }
           updateFish={ this.updateFish }
-          storeId={ this.props.match.params.storeId }
+          shopId={ this.props.match.params.shopId }
           loadSamples={ this.loadSamples }
         />
       </div>
@@ -110,9 +119,11 @@ Shop.propTypes = {
 }
 
 export default connect((state) => {
-  return {
-    ...state,
-    fishes: state.fishes,
-    order: state.order
-  }
+  return state;
+  // return {
+  //   ...state,
+  //   shop: state.shop,
+  //   fishes: state.fishes,
+  //   order: state.order
+  // }
 })(Shop);

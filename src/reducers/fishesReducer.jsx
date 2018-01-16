@@ -1,13 +1,6 @@
-import fishesSamples from '../data/fishes';
-
-//--------------------------------------------------------------------------------------------------
-
 function fishesReducer (state = {}, action) {
   switch (action.type) {
-    case 'FISH_SAMPLES':
-      const stateSamples = { ...state, ...fishesSamples };
-
-      return stateSamples;
+    case 'FISHES_ADD': return action.fishes;
 
     case 'FISH_ADD':
       const timestamp = Date.now();
@@ -32,5 +25,4 @@ function fishesReducer (state = {}, action) {
   }
 }
 
-export const defaultFishes = {};
 export default fishesReducer;

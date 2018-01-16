@@ -51,12 +51,12 @@ class Inventory extends React.Component {
     if (err)
       return;
 
-    const storeRef = firebase.database().ref(this.props.storeId);
-    storeRef.once('value', (snapshot) => {
+    const shopRef = firebase.database().ref(this.props.shopId);
+    shopRef.once('value', (snapshot) => {
       const data = snapshot.val() || {};
 
       if (!data.owner)
-        storeRef.set({ owner: authData.user.uid });
+        shopRef.set({ owner: authData.user.uid });
 
       this.setState({
         uid: authData.user.uid,
@@ -108,7 +108,7 @@ class Inventory extends React.Component {
     if (this.state.uid !== this.state.owner) {
       return (
         <div>
-          <p>Sorry, you're not the owner of the store!</p>
+          <p>Sorry, you're not the owner of the shop!</p>
           { logout }
         </div>
       );
@@ -132,7 +132,7 @@ Inventory.propTypes = {
   updateFish: PropTypes.func.isRequired,
   removeFish: PropTypes.func.isRequired,
   addFish: PropTypes.func.isRequired,
-  storeId: PropTypes.string.isRequired
+  shopId: PropTypes.string.isRequired
 };
 
 export default Inventory;

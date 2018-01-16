@@ -1,24 +1,21 @@
-import { bindActionCreators } from 'redux';
+import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-import * as orderActions from '../reducers/orderActions';
+class App extends React.Component {
+  render () {
+    const childrenWithProps = React.Children.map(
+      this.props.children,
+      (child) => React.cloneElement(child, this.props)
+    );
 
-import Main from './Main';
-
-//--------------------------------------------------------------------------------------------------
-
-function mapStateToProps (state) {
-  return {
-    fishes: state.fishes,
-    order: state.order
+    return (
+      <div>
+        <h1><Link to="/">Catch of the Day</Link></h1>
+        { childrenWithProps }
+      </div>
+    );
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators(orderActions, dispatch);
-}
-
-const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
-
-export default App;
+export default withRouter(connect()(App));

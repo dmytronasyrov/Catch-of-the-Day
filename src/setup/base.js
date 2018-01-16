@@ -11,6 +11,6 @@ const app = firebase.initializeApp({
   storageBucket: process.env.STORAGE_BUCKET,
   messagingSenderId: process.env.MESSAGING_SENDER_ID
 })
-const base = Rebase.createClass(app.database());
 
+const base = Rebase.createClass(app.database());
 export default base;

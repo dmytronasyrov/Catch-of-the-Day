@@ -16,5 +16,4 @@ function orderReducer (state = {}, action) {
   }
 }
 
-export const defaultOrder = {};
 export default orderReducer;
