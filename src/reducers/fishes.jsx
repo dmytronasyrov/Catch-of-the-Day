@@ -1,5 +1,14 @@
+import fishesSamples from '../data/fishes';
+
+//----------------------------------------------------------------
+
 function fishes (state = {}, action) {
   switch (action.type) {
+    case 'FISH_SAMPLES':
+      const stateSamples = { ...state, ...fishesSamples };
+
+      return stateSamples;
+
     case 'FISH_ADD':
       const timestamp = Date.now();
       const stateAdd = { ...state };

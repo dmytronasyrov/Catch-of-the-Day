@@ -2,14 +2,11 @@ import { createStore, applyMiddleware, compose} from 'redux';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux'
 import { createBrowserHistory } from 'history';
 
-import fishes from './data/fishes';
-import order from './data/order';
-
 import rootReducer from './reducers/index';
 
 //--------------------------------------------------------------------------------------------------
 
-const defaultState = { fishes, order };
+const defaultState = { fishes: {}, order: {} };
 const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() : f => f);
 export const history = createBrowserHistory();
 const middleware = compose(enhancers, applyMiddleware(routerMiddleware(history)));

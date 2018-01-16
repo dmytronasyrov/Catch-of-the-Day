@@ -24,6 +24,7 @@ class Shop extends React.Component {
     this.removeFish = this.removeFish.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
     this.removeFromOrder = this.removeFromOrder.bind(this);
+    this.loadSamples = this.loadSamples.bind(this);
 
     this.props = {
       fishes: {},
@@ -60,6 +61,10 @@ class Shop extends React.Component {
     this.props.dispatch(fishesActions.removeFish(key));
   }
 
+  loadSamples () {
+    this.props.dispatch(fishesActions.loadSamples());
+  }
+
   addToOrder (key) {
     this.props.dispatch(orderActions.addToOrder(key));
   }
@@ -93,6 +98,7 @@ class Shop extends React.Component {
           fishes={ this.props.fishes }
           updateFish={ this.updateFish }
           storeId={ this.props.match.params.storeId }
+          loadSamples={ this.loadSamples }
         />
       </div>
     );

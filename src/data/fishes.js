@@ -1,4 +1,4 @@
-const fishes = {
+const fishesSamples = {
   fish1: {
     name: 'Pacific Halibut',
     image: 'http://i.istockimg.com/file_thumbview_approve/36248396/5/stock-photo-36248396-blackened-cajun-sea-bass.jpg',
@@ -72,4 +72,4 @@ const fishes = {
   }
 };
 
-export default fishes;
+export default fishesSamples;
