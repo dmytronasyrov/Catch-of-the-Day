@@ -3,7 +3,7 @@ import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-rou
 import { createBrowserHistory } from 'history';
 import thunk from 'redux-thunk';
 
-import rootReducer from './reducers/index';
+import indexReducer from './reducers/indexReducer';
 
 //--------------------------------------------------------------------------------------------------
 
@@ -11,12 +11,12 @@ export const history = createBrowserHistory();
 const router = routerMiddleware(history)
 const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() : f => f);
 const middleware = compose(applyMiddleware(thunk, router), enhancers);
-const store = createStore(rootReducer, middleware);
+const store = createStore(indexReducer, middleware);
 
 if (module.hot) {
-  module.hot.accept('./reducers/index', () => {
-    const nextRootReducer = require('./reducers/index').default;
-    store.replaceReducer(nextRootReducer);
+  module.hot.accept('./reducers/indexReducer', () => {
+    const nextIndexReducer = require('./reducers/indexReducer').default;
+    store.replaceReducer(nextIndexReducer);
   });
 }
 

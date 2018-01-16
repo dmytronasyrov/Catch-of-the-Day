@@ -12,11 +12,11 @@ const appReducer = combineReducers({
   router: routerReducer
 });
 
-const rootReducer = (state, action) => {
+const indexReducer = (state, action) => {
   if (action.type === 'SIGN_OUT')
-    state = undefined
+    state.order = undefined
 
   return appReducer(state, action)
 }
 
-export default rootReducer;
+export default indexReducer;
