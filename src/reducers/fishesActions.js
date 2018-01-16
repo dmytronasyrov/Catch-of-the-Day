@@ -6,7 +6,7 @@ export function loadSamples () {
     const fishes = { ...getState().fishes, ...fishesSamples }
 
     return base
-      .post(`${getState().shop}/fishes`, { data: fishes})
+      .post(`${getState().shop}/fishes`, { data: fishes })
       .then(() => { return dispatch({ type: 'FISHES_ADD', fishes })})
       .catch(err => { console.error(err) });
   }
@@ -20,7 +20,7 @@ export function addFish (fish) {
     updatedFishes[name] = fish
 
     return base
-      .post(`${getState().shop}/fishes`, { data: updatedFishes})
+      .post(`${getState().shop}/fishes`, { data: updatedFishes })
       .then(() => { return dispatch({ type: 'FISH_ADD', fish, name })})
       .catch(err => { console.error(err) });
   }

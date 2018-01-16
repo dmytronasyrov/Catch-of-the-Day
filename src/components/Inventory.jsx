@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import base from '../setup/base';
 import firebase from 'firebase';
+import * as indexActions from '../reducers/indexActions';
 
 import AddFishForm from './AddFishForm';
 
@@ -42,9 +44,10 @@ class Inventory extends React.Component {
 
   authenticate () {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(this.authHandler).catch(error => {
-    	console.log(error);
-    });
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then(this.authHandler)
+      .catch(error => { console.log(error) });
   }
 
   authHandler (err, authData) {
@@ -67,6 +70,7 @@ class Inventory extends React.Component {
 
   logout () {
     firebase.auth().signOut();
+    this.props.dispatch(indexActions.signOut());
     this.setState({ uid: null });
   }
 
@@ -135,4 +139,4 @@ Inventory.propTypes = {
   shopId: PropTypes.string.isRequired
 };
 
-export default Inventory;
+export default connect()(Inventory);

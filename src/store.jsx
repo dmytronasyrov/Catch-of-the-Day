@@ -13,10 +13,6 @@ const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() 
 const middleware = compose(applyMiddleware(thunk, router), enhancers);
 const store = createStore(rootReducer, middleware);
 
-if (window.devToolsExtension) {
-  window.devToolsExtension.updateStore(store);
-}
-
 if (module.hot) {
   module.hot.accept('./reducers/index', () => {
     const nextRootReducer = require('./reducers/index').default;

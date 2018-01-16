@@ -36,6 +36,7 @@ class Shop extends React.Component {
 
   componentWillMount () {
     this.props.dispatch(shopActions.openShop(this.props.match.params.shopId));
+    this.props.dispatch(shopActions.firebaseSync());
     // this.ref = base.syncState(`${this.props.shopId}/fishes`, {context: this, state: 'fishes'});
     //
     // const localStorageRef = localStorage.getItem(`order-${this.props.match.params.shopId}`);
