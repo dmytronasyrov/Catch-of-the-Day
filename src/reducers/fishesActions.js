@@ -19,10 +19,9 @@ export function addFish (fish) {
     const updatedFishes = { ...getState().fishes };
     updatedFishes[key] = fish
 
-    return base
-      .post(`${getState().shop}/fishes`, { data: updatedFishes })
-      .then(() => { return dispatch({ type: 'FISH_ADD', fish, key })})
-      .catch(err => { console.error(err) });
+    dispatch({ type: 'FISH_ADD', fish, key })
+    
+    return base.post(`${getState().shop}/fishes`, { data: updatedFishes })
   }
 }
 
@@ -31,10 +30,9 @@ export function updateFish (key, fish) {
     const updatedFishes = { ...getState().fishes };
     updatedFishes[key] = fish;
 
-    return base
-      .post(`${getState().shop}/fishes`, { data: updatedFishes })
-      .then(() => { return dispatch({ type: 'FISH_UPDATE', fish, key })})
-      .catch(err => { console.error(err) });
+    dispatch({ type: 'FISH_UPDATE', fish, key });
+
+    return base.post(`${getState().shop}/fishes`, { data: updatedFishes });
   }
 }
 
@@ -43,9 +41,8 @@ export function removeFish (key) {
     const updatedFishes = { ...getState().fishes };
     delete updatedFishes[key];
 
-    return base
-      .post(`${getState().shop}/fishes`, { data: updatedFishes })
-      .then(() => { return dispatch({ type: 'FISH_REMOVE', key })})
-      .catch(err => { console.error(err) });
+    dispatch({ type: 'FISH_REMOVE', key })
+
+    return base.post(`${getState().shop}/fishes`, { data: updatedFishes })
   }
 }
